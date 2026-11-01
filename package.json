@@ -1,0 +1,37 @@
+{
+  "name": "insurance-claim-photo-upload",
+  "version": "1.0.0",
+  "description": "Versicherung Schadensmeldung – Foto-Upload-Feature mit Galerie-Auswahl",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest --ci --reporters=default --reporters=jest-junit",
+    "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": ["<rootDir>/src"],
+    "testMatch": ["**/__tests__/**/*.test.ts", "**/__tests__/**/*.test.tsx"],
+    "collectCoverageFrom": ["src/**/*.ts", "!src/**/*.d.ts"],
+    "moduleNameMapper": {
+      "^react-native$": "<rootDir>/src/pal/__mocks__/react-native.ts",
+      "^@react-native-camera-roll/camera-roll$": "<rootDir>/src/pal/__mocks__/camera-roll.ts",
+      "^react-native-image-picker$": "<rootDir>/src/pal/__mocks__/react-native-image-picker.ts"
+    }
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-native": "0.73.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.2.79",
+    "@types/react-native": "^0.73.0",
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.5"
+  }
+}
