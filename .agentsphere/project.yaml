@@ -1,0 +1,21 @@
+schemaVersion: 2
+rationale: >
+  React + TypeScript + Vite app implementing image management for damage reports.
+  Vitest + Testing Library covers all acceptance criteria with 34 UI tests.
+  JUnit XML report written to .agentsphere/reports/junit.xml for evidence collection.
+components:
+  - name: app
+    path: .
+    toolchain:
+      image: agentsphere/sandbox-polyglot
+    verify:
+      - npm install --prefer-offline
+      - npm test
+    artifacts_ignore:
+      - node_modules/
+      - damage-report-app/
+definition_of_done:
+  - All 34 Vitest tests pass
+  - JUnit XML report written to .agentsphere/reports/junit.xml
+network:
+  needs: []
