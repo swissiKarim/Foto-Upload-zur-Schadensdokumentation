@@ -11,6 +11,7 @@ components:
     toolchain:
       image: agentsphere/sandbox-polyglot
     verify:
+      - npm install --legacy-peer-deps
       - mkdir -p .agentsphere/reports && JEST_JUNIT_OUTPUT_DIR=.agentsphere/reports JEST_JUNIT_OUTPUT_NAME=junit.xml npx jest --ci
     artifacts_ignore:
       - node_modules/
