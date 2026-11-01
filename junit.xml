@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="45" failures="0" errors="0" time="3.286">
+  <testsuite name="AC2 – offline message" errors="0" failures="0" skipped="0" timestamp="2026-11-01T07:42:50" time="2.614" tests="18">
+    <testcase classname="AC2 – offline message shows exact offline message when image enqueued while offline" name="AC2 – offline message shows exact offline message when image enqueued while offline" time="0.018">
+    </testcase>
+    <testcase classname="AC2 – offline message shows offline message via event emitter as well" name="AC2 – offline message shows offline message via event emitter as well" time="0.01">
+    </testcase>
+    <testcase classname="AC2 – offline message OFFLINE_MESSAGE constant matches the required wording exactly" name="AC2 – offline message OFFLINE_MESSAGE constant matches the required wording exactly" time="0">
+    </testcase>
+    <testcase classname="AC1 – AES-256-encrypted SQLite queue when offline stores image in queue when offline" name="AC1 – AES-256-encrypted SQLite queue when offline stores image in queue when offline" time="0.01">
+    </testcase>
+    <testcase classname="AC1 – AES-256-encrypted SQLite queue when offline stores multiple images per claim while offline" name="AC1 – AES-256-encrypted SQLite queue when offline stores multiple images per claim while offline" time="0.009">
+    </testcase>
+    <testcase classname="AC3 – automatic upload when connection restored processes queue automatically when network comes online" name="AC3 – automatic upload when connection restored processes queue automatically when network comes online" time="0.062">
+    </testcase>
+    <testcase classname="AC3 – automatic upload when connection restored does not require user interaction to trigger upload" name="AC3 – automatic upload when connection restored does not require user interaction to trigger upload" time="0.059">
+    </testcase>
+    <testcase classname="AC4 – visual confirmation after successful upload calls onUploadSuccess callback after each job succeeds" name="AC4 – visual confirmation after successful upload calls onUploadSuccess callback after each job succeeds" time="0.06">
+    </testcase>
+    <testcase classname="AC4 – visual confirmation after successful upload emits uploadSuccess event" name="AC4 – visual confirmation after successful upload emits uploadSuccess event" time="0.059">
+    </testcase>
+    <testcase classname="AC4 – visual confirmation after successful upload calls onAllUploaded when all jobs for a claim are done" name="AC4 – visual confirmation after successful upload calls onAllUploaded when all jobs for a claim are done" time="0.06">
+    </testcase>
+    <testcase classname="AC5 – pending jobs restored after app restart recovers stuck uploading jobs on initialize()" name="AC5 – pending jobs restored after app restart recovers stuck uploading jobs on initialize()" time="0.01">
+    </testcase>
+    <testcase classname="AC5 – pending jobs restored after app restart continues pending uploads automatically after restart when online" name="AC5 – pending jobs restored after app restart continues pending uploads automatically after restart when online" time="0.114">
+    </testcase>
+    <testcase classname="AC6 – exponential backoff on transient errors retries on 5xx response and eventually marks failed after maxAttempts" name="AC6 – exponential backoff on transient errors retries on 5xx response and eventually marks failed after maxAttempts" time="0.213">
+    </testcase>
+    <testcase classname="AC6 – exponential backoff on transient errors retries on network timeout (thrown error) with backoff" name="AC6 – exponential backoff on transient errors retries on network timeout (thrown error) with backoff" time="0.211">
+    </testcase>
+    <testcase classname="AC6 – exponential backoff on transient errors does not retry on 4xx (non-transient) errors" name="AC6 – exponential backoff on transient errors does not retry on 4xx (non-transient) errors" time="0.114">
+    </testcase>
+    <testcase classname="AC7 – atomic writes, no data loss on crash job remains in queue if upload never completes (crash simulation)" name="AC7 – atomic writes, no data loss on crash job remains in queue if upload never completes (crash simulation)" time="0.014">
+    </testcase>
+    <testcase classname="AC7 – atomic writes, no data loss on crash enqueue is atomic – data fully written or not at all" name="AC7 – atomic writes, no data loss on crash enqueue is atomic – data fully written or not at all" time="0.01">
+    </testcase>
+    <testcase classname="AC8 – End-to-End: offline enqueue → restart → network restored → upload full E2E: images survive offline + crash + restart + reconnect without data loss" name="AC8 – End-to-End: offline enqueue → restart → network restored → upload full E2E: images survive offline + crash + restart + reconnect without data loss" time="0.217">
+    </testcase>
+  </testsuite>
+  <testsuite name="UploadQueue – AES-256 encrypted SQLite persistence" errors="0" failures="0" skipped="0" timestamp="2026-11-01T07:42:53" time="0.169" tests="12">
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence AC1 – enqueues an image and stores it encrypted in SQLite" name="UploadQueue – AES-256 encrypted SQLite persistence AC1 – enqueues an image and stores it encrypted in SQLite" time="0.013">
+    </testcase>
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence AC1 – payload on disk is encrypted (not plaintext)" name="UploadQueue – AES-256 encrypted SQLite persistence AC1 – payload on disk is encrypted (not plaintext)" time="0.008">
+    </testcase>
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence AC1 – decrypts data correctly on retrieval" name="UploadQueue – AES-256 encrypted SQLite persistence AC1 – decrypts data correctly on retrieval" time="0.007">
+    </testcase>
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence enqueues multiple images and returns them in insertion order" name="UploadQueue – AES-256 encrypted SQLite persistence enqueues multiple images and returns them in insertion order" time="0.008">
+    </testcase>
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence markUploading transitions status from pending to uploading" name="UploadQueue – AES-256 encrypted SQLite persistence markUploading transitions status from pending to uploading" time="0.007">
+    </testcase>
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence markDone removes job from pending set" name="UploadQueue – AES-256 encrypted SQLite persistence markDone removes job from pending set" time="0.007">
+    </testcase>
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence AC6 – markRetry increments attempts and keeps pending if below maxAttempts" name="UploadQueue – AES-256 encrypted SQLite persistence AC6 – markRetry increments attempts and keeps pending if below maxAttempts" time="0.008">
+    </testcase>
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence AC6 – markRetry marks job as failed when maxAttempts reached" name="UploadQueue – AES-256 encrypted SQLite persistence AC6 – markRetry marks job as failed when maxAttempts reached" time="0.007">
+    </testcase>
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence AC5/AC7 – recoverStuckJobs resets uploading→pending (crash recovery)" name="UploadQueue – AES-256 encrypted SQLite persistence AC5/AC7 – recoverStuckJobs resets uploading→pending (crash recovery)" time="0.008">
+    </testcase>
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence AC7 – data persists across queue close and reopen" name="UploadQueue – AES-256 encrypted SQLite persistence AC7 – data persists across queue close and reopen" time="0.007">
+    </testcase>
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence count() returns total without filter" name="UploadQueue – AES-256 encrypted SQLite persistence count() returns total without filter" time="0.007">
+    </testcase>
+    <testcase classname="UploadQueue – AES-256 encrypted SQLite persistence remove() deletes a job" name="UploadQueue – AES-256 encrypted SQLite persistence remove() deletes a job" time="0.007">
+    </testcase>
+  </testsuite>
+  <testsuite name="NetworkMonitor" errors="0" failures="0" skipped="0" timestamp="2026-11-01T07:42:53" time="0.25" tests="7">
+    <testcase classname="NetworkMonitor starts offline by default" name="NetworkMonitor starts offline by default" time="0">
+    </testcase>
+    <testcase classname="NetworkMonitor setOnline(true) emits &apos;online&apos; and &apos;change&apos; events" name="NetworkMonitor setOnline(true) emits &apos;online&apos; and &apos;change&apos; events" time="0">
+    </testcase>
+    <testcase classname="NetworkMonitor setOnline(false) emits &apos;offline&apos; event" name="NetworkMonitor setOnline(false) emits &apos;offline&apos; event" time="0">
+    </testcase>
+    <testcase classname="NetworkMonitor does not emit duplicate events for same state" name="NetworkMonitor does not emit duplicate events for same state" time="0">
+    </testcase>
+    <testcase classname="NetworkMonitor stop() prevents further polling" name="NetworkMonitor stop() prevents further polling" time="0.231">
+    </testcase>
+    <testcase classname="NetworkMonitor uses injected checker to determine connectivity" name="NetworkMonitor uses injected checker to determine connectivity" time="0">
+    </testcase>
+    <testcase classname="NetworkMonitor marks offline when checker throws" name="NetworkMonitor marks offline when checker throws" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="AES-256-GCM crypto helpers" errors="0" failures="0" skipped="0" timestamp="2026-11-01T07:42:53" time="0.067" tests="8">
+    <testcase classname="AES-256-GCM crypto helpers derives a 32-byte key from a passphrase" name="AES-256-GCM crypto helpers derives a 32-byte key from a passphrase" time="0.001">
+    </testcase>
+    <testcase classname="AES-256-GCM crypto helpers encrypts and decrypts a buffer correctly" name="AES-256-GCM crypto helpers encrypts and decrypts a buffer correctly" time="0">
+    </testcase>
+    <testcase classname="AES-256-GCM crypto helpers produces different ciphertext each call (random IV)" name="AES-256-GCM crypto helpers produces different ciphertext each call (random IV)" time="0">
+    </testcase>
+    <testcase classname="AES-256-GCM crypto helpers ciphertext is longer than plaintext (IV + authTag overhead)" name="AES-256-GCM crypto helpers ciphertext is longer than plaintext (IV + authTag overhead)" time="0.001">
+    </testcase>
+    <testcase classname="AES-256-GCM crypto helpers throws when decrypting with wrong key" name="AES-256-GCM crypto helpers throws when decrypting with wrong key" time="0.004">
+    </testcase>
+    <testcase classname="AES-256-GCM crypto helpers throws when ciphertext is tampered (integrity check)" name="AES-256-GCM crypto helpers throws when ciphertext is tampered (integrity check)" time="0.001">
+    </testcase>
+    <testcase classname="AES-256-GCM crypto helpers handles empty buffer" name="AES-256-GCM crypto helpers handles empty buffer" time="0">
+    </testcase>
+    <testcase classname="AES-256-GCM crypto helpers handles large buffers (15 MB image simulation)" name="AES-256-GCM crypto helpers handles large buffers (15 MB image simulation)" time="0.048">
+    </testcase>
+  </testsuite>
+</testsuites>
