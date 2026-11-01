@@ -1,0 +1,226 @@
+/* ============================================================
+   Damage Report Image Manager – Component Styles
+   ============================================================ */
+
+/* Section wrapper */
+.damage-image-manager {
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.damage-image-manager__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.damage-image-manager__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1a1a2e;
+}
+
+/* ── Counter ─────────────────────────────────────────────── */
+.image-counter {
+  display: inline-flex;
+  align-items: center;
+  background: #f0f4ff;
+  border: 1.5px solid #4f6ef7;
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2d3a8c;
+  gap: 0.1rem;
+}
+
+/* ── Thumbnail Grid ───────────────────────────────────────── */
+.thumbnail-grid {
+  list-style: none;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.75rem;
+}
+
+.thumbnail-grid__empty {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.thumbnail-grid__item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: #f5f5f5;
+}
+
+.thumbnail-grid__preview-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+}
+
+.thumbnail-grid__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.thumbnail-grid__preview-btn:hover .thumbnail-grid__img,
+.thumbnail-grid__preview-btn:focus .thumbnail-grid__img {
+  transform: scale(1.04);
+}
+
+.thumbnail-grid__remove-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(220, 38, 38, 0.9);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.15s ease;
+  z-index: 2;
+}
+
+.thumbnail-grid__remove-btn:hover,
+.thumbnail-grid__remove-btn:focus {
+  background: rgba(185, 28, 28, 1);
+}
+
+/* ── Add Image Button ─────────────────────────────────────── */
+.add-image-btn-wrapper {
+  margin-top: 0.5rem;
+}
+
+.add-image-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 2px dashed #4f6ef7;
+  background: #f0f4ff;
+  color: #2d3a8c;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.add-image-btn:hover:not(:disabled),
+.add-image-btn:focus:not(:disabled) {
+  background: #dce5ff;
+  border-color: #2d3a8c;
+}
+
+.add-image-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  border-style: solid;
+}
+
+.add-image-btn__limit-msg {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #b45309;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+}
+
+/* ── Fullscreen Viewer ────────────────────────────────────── */
+.fullscreen-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.fullscreen-viewer__content {
+  position: relative;
+  max-width: min(90vw, 900px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fullscreen-viewer__img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.fullscreen-viewer__close-btn {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.15s ease;
+}
+
+.fullscreen-viewer__close-btn:hover,
+.fullscreen-viewer__close-btn:focus {
+  background: #b91c1c;
+}
+
+.fullscreen-viewer__filename {
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  margin: 0;
+  text-align: center;
+  word-break: break-all;
+}
