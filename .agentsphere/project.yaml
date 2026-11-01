@@ -1,0 +1,22 @@
+schemaVersion: 2
+rationale: >
+  React Native TypeScript project with Jest/ts-jest for unit testing.
+  A Platform Abstraction Layer (PAL) encapsulates iOS (AVFoundation via
+  IosCameraAdapter) and Android (CameraX via AndroidCameraAdapter) behind
+  ICameraAdapter. All acceptance criteria are verified by Jest unit tests
+  that produce a JUnit XML report.
+components:
+  - name: app
+    path: .
+    toolchain:
+      image: agentsphere/sandbox-polyglot
+    verify:
+      - mkdir -p .agentsphere/reports && JEST_JUNIT_OUTPUT_DIR=.agentsphere/reports JEST_JUNIT_OUTPUT_NAME=junit.xml npx jest --ci
+    artifacts_ignore:
+      - node_modules/
+      - coverage/
+      - dist/
+definition_of_done:
+  - All verify commands pass on the submitted commit
+network:
+  needs: []
