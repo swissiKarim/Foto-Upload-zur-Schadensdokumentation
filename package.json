@@ -1,0 +1,45 @@
+{
+  "name": "claims-photo-upload",
+  "version": "1.0.0",
+  "description": "Foto-Upload-Modul für das Schadensmeldungssystem",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "test": "jest --forceExit --runInBand --reporters=default --reporters=jest-junit 2>&1 | tee /dev/stderr; exit ${PIPESTATUS[0]}",
+    "test:ci": "jest --forceExit --runInBand"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.11",
+    "@types/uuid": "^9.0.7",
+    "@types/jest": "^29.5.11",
+    "@types/supertest": "^6.0.2",
+    "@types/node": "^20.11.0",
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": ["**/tests/**/*.test.ts"],
+    "reporters": [
+      "default",
+      ["jest-junit", {
+        "outputDirectory": ".agentsphere/reports",
+        "outputName": "junit.xml"
+      }]
+    ],
+    "collectCoverage": false
+  }
+}
