@@ -1,0 +1,21 @@
+schemaVersion: 2
+rationale: >
+  TypeScript/Jest project implementing the gallery PAL for iOS (PHPickerViewController)
+  and Android (Photo Picker / MediaStore). No native build step is needed for unit
+  testing; ts-jest compiles TypeScript in-process. jest-junit writes a JUnit XML
+  report so the platform can count tests in the evidence package.
+components:
+  - name: gallery-pal
+    path: .
+    toolchain:
+      image: agentsphere/sandbox-polyglot
+    verify:
+      - npm ci --legacy-peer-deps
+      - JEST_JUNIT_OUTPUT_DIR=.agentsphere/reports JEST_JUNIT_OUTPUT_NAME=junit.xml npx jest --ci --reporters=default --reporters=jest-junit
+    artifacts_ignore:
+      - node_modules/
+definition_of_done:
+  - All verify commands pass on the submitted commit
+  - 84 unit tests green (JUnit report at .agentsphere/reports/junit.xml)
+network:
+  needs: []
