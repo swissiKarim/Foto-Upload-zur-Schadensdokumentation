@@ -1,0 +1,22 @@
+schemaVersion: 2
+rationale: >
+  TypeScript/Node.js library implementing the full photo-upload pipeline
+  (async compression, AES-256-GCM local encryption, TLS-1.3-only HTTPS upload
+  with certificate pinning, UUID idempotency, offline queue with auto-retry).
+  Vitest runs unit + integration tests and writes a JUnit XML report.
+components:
+  - name: insurance-photo-upload
+    path: .
+    toolchain:
+      image: agentsphere/sandbox-polyglot
+    verify:
+      - npm ci
+      - npx vitest run --reporter=junit --outputFile=.agentsphere/reports/junit.xml
+    artifacts_ignore:
+      - node_modules/
+      - dist/
+definition_of_done:
+  - All 85 vitest tests pass (unit + integration)
+  - JUnit XML report written to .agentsphere/reports/junit.xml
+network:
+  needs: []
