@@ -1,0 +1,21 @@
+schemaVersion: 2
+rationale: >
+  TypeScript/Node.js implementation of the offline photo upload queue using
+  better-sqlite3 (AES-256-GCM encrypted, WAL mode for atomicity) and Jest
+  for unit + integration tests. Jest-junit produces JUnit XML for evidence.
+components:
+  - name: app
+    path: .
+    toolchain:
+      image: agentsphere/sandbox-polyglot
+    verify:
+      - npm ci
+      - npm test
+    artifacts_ignore:
+      - node_modules/
+      - dist/
+      - coverage/
+definition_of_done:
+  - All verify commands pass on the submitted commit
+network:
+  needs: []
