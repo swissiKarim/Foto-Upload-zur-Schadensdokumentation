@@ -1,0 +1,21 @@
+schemaVersion: 2
+rationale: >
+  Node.js 20 / TypeScript / Express backend with Jest integration tests.
+  Jest-JUnit reporter writes AC-mapped test results to .agentsphere/reports/junit.xml.
+  All acceptance criteria are covered by named test suites in tests/photo.integration.test.ts.
+components:
+  - name: claims-photo-upload
+    path: .
+    toolchain:
+      image: agentsphere/sandbox-polyglot
+    verify:
+      - npm install --prefer-offline
+      - npx jest --forceExit --runInBand
+    artifacts_ignore:
+      - node_modules/
+      - dist/
+definition_of_done:
+  - All 31 Jest integration tests pass
+  - JUnit report written to .agentsphere/reports/junit.xml
+network:
+  needs: []
